@@ -12,3 +12,29 @@
 - `emit(signal)` 处理信号`signal` 。
 
 （注意为`Signal.form()`直接传入dictionary对象作为参数时，在其前加入\*\*）
+
+### Update 2018-3-24
+
+### card.py
+卡牌类。
+
+**API**
+- 卡牌分为四种类型
+  - `BasicCard` ：基本牌
+  - `DelayFunctionCard` : 延时锦囊牌
+  - `NonDelayFunctionCard` ：非延时锦囊牌
+  - `Equipment` ：装备牌
+
+### card_factory.py
+卡牌的构造。
+
+**API**
+- `CardFactory.produce(name, color, point)` 构造一个名为 `name` ，花色为 `color` ，点数为 `point` 的 `Card` 类对象。
+- 希望添加一张新卡牌，在 `CardFactory.card_type` 中添加数据。
+- 希望为某张牌加入新的响应，在 `CardFactory.signal_lib` 中添加数据。
+- 卡牌产生的信号目前分为五种
+  - `show` ：展示卡牌时发出， 适用于所有类型卡牌
+  - `use` ：使用时发出，适用于基本、延时/非延时锦囊牌
+  - `play` ：打出时发出，适用于基本牌
+  - `equip` ：装备时发出，适用于装备牌
+  - `unequip` ：卸下时发出，适用于装备牌
